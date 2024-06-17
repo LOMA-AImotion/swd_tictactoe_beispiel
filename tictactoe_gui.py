@@ -16,7 +16,7 @@ def create_widgets(root):
             button.grid(row=row, column=col)
             buttons[row][col] = button
 
-    label = tk.Label(root, text=f"Player {current_player}'s turn", font=('normal', 20, 'normal'))
+    label = tk.Label(root, text=f"Spieler {current_player} ist dran", font=('normal', 20, 'normal'))
     label.grid(row=3, column=0, columnspan=3)
     return label
 
