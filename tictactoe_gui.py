@@ -27,14 +27,14 @@ def on_button_click(row, col):
         buttons[row][col].config(text=current_player)
         
         if check_winner(board):
-            label.config(text=f"Player {current_player} wins!")
-            messagebox.showinfo("Game Over", f"Player {current_player} wins!")
+            label.config(text=f"Spieler {current_player} gewinnt!")
+            messagebox.showinfo("Game Over", f"Spieler {current_player} gewinnt!")
         elif all(all(cell != "" for cell in row) for row in board):
-            label.config(text="It's a tie!")
-            messagebox.showinfo("Game Over", "It's a tie!")
+            label.config(text="Es ist ein Unentschieden!")
+            messagebox.showinfo("Game Over", "Es ist ein Unentschieden")
         else:
             current_player = "O" if current_player == "X" else "X"
-            label.config(text=f"Player {current_player}'s turn")
+            label.config(text=f"Spieler {current_player} ist dran")
 
 
 if __name__ == "__main__":
