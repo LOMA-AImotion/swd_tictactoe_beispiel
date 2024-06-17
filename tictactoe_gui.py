@@ -30,8 +30,9 @@ def on_button_click(row, col):
             label.config(text=f"Spieler {current_player} gewinnt!")
             messagebox.showinfo("Game Over", f"Spieler {current_player} gewinnt!")
         elif all(all(cell != "" for cell in row) for row in board):
-            label.config(text="Es ist ein Unentschieden!")
-            messagebox.showinfo("Game Over", "Es ist ein Unentschieden")
+            unentschieden_text = "Es ist ein Unentschieden!" 
+            label.config(text = unentschieden_text)
+            messagebox.showinfo("Game Over", unentschieden_text)
         else:
             current_player = "O" if current_player == "X" else "X"
             label.config(text=f"Spieler {current_player} ist dran")
