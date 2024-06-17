@@ -35,6 +35,8 @@ def on_button_click(row, col):
         else:
             current_player = "O" if current_player == "X" else "X"
             label.config(text=f"Player {current_player}'s turn")
+    elif board[row][col] in ["X", "O"]:
+        messagebox.showerror("Feld bereits belegt", "Sie können dieses Feld nicht wählen!")
 
 
 if __name__ == "__main__":
