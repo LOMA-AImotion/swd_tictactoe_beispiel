@@ -16,7 +16,7 @@ def create_widgets(root):
             button.grid(row=row, column=col)
             buttons[row][col] = button
 
-    label = tk.Label(root, text=f"Player {current_player}'s turn", font=('normal', 20, 'normal'))
+    label = tk.Label(root, text=f"Spieler {current_player} ist dran", font=('normal', 20, 'normal'))
     label.grid(row=3, column=0, columnspan=3)
     return label
 
@@ -27,14 +27,15 @@ def on_button_click(row, col):
         buttons[row][col].config(text=current_player)
         
         if check_winner(board):
-            label.config(text=f"Player {current_player} wins!")
-            messagebox.showinfo("Game Over", f"Player {current_player} wins!")
+            label.config(text=f"Spieler {current_player} gewinnt!")
+            messagebox.showinfo("Game Over", f"Spieler {current_player} gewinnt!")
         elif all(all(cell != "" for cell in row) for row in board):
-            label.config(text="It's a tie!")
-            messagebox.showinfo("Game Over", "It's a tie!")
+            unentschieden_text = "Es ist ein Unentschieden!" 
+            label.config(text = unentschieden_text)
+            messagebox.showinfo("Game Over", unentschieden_text)
         else:
             current_player = "O" if current_player == "X" else "X"
-            label.config(text=f"Player {current_player}'s turn")
+            label.config(text=f"Spieler {current_player} ist dran")
     elif board[row][col] in ["X", "O"]:
         messagebox.showerror("Feld bereits belegt", "Sie können dieses Feld nicht wählen!")
 
